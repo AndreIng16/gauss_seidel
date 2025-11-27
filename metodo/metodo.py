@@ -22,7 +22,7 @@ def gauss_seidel(A, b, max_iter, tol, x_ini):
         if np.all(errores < tol * 100):
             break
 
-    columnas = ["Iteración"] + [f"x{i+1}" for i in range(n)] + [f"Error_x{i+1}" for i in range(n)]
+    columnas = ["Iteracion"] + [f"x{i+1}" for i in range(n)] + [f"Error_x{i+1}" for i in range(n)]
     tabla = pd.DataFrame(datos, columns=columnas)
 
     return x, tabla

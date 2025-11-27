@@ -6,7 +6,7 @@ def graficar_errores(tabla):
 
     plt.plot(tabla["Iteración"], tabla["Error_promedio"], marker="o")
     plt.title("Convergencia Gauss-Seidel")
-    plt.xlabel("Iteración")
+    plt.xlabel("Iteracion")
     plt.ylabel("Error promedio (%)")
     plt.grid(True)
     plt.show()
