@@ -2,7 +2,7 @@
 # CONTROLADOR PRINCIPAL DEL SISTEMA GAUSS-SEIDEL
 # -------------------------------------------------------------
 
-from servicios.parser_ecuaciones import convertir_texto_a_matrices
+from traduccion.parser_ecuaciones import convertir_texto_a_matrices
 from metodo.metodo import gauss_seidel
 from servicios.grafica import graficar_errores
 

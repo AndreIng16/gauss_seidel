@@ -1,4 +1,4 @@
-from servicios.parser_ecuaciones import convertir_texto_a_matrices
+from traduccion.parser_ecuaciones import convertir_texto_a_matrices
 from metodo.metodo import gauss_seidel
 
 # 1. Escribir ecuaciones directas como texto
@@ -26,3 +26,4 @@ print("Solucion encontrada:", solucion)
 print("\nTabla de iteraciones:")
 for fila in tabla:
     print(fila)
+    
