@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'interfaz', 
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,12 @@ TEMPLATES = [
         },
     },
 ]
+
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Templates
+TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'templates')]
 
 WSGI_APPLICATION = 'gauss_seidel.wsgi.application'
 

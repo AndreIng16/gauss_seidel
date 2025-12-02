@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>📚 Historial de Sistemas</h2>
+
+{% if sistemas %}
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Iteraciones</th>
+        <th>Acciones</th>
+    </tr>
+    {% for sistema in sistemas %}
+    <tr>
+        <td>{{ sistema.nombre }}</td>
+        <td>{{ sistema.fecha_creacion|date:"d/m/Y H:i" }}</td>
+        <td>{{ sistema.solucion.iteraciones_usadas }}</td>
+        <td>
+            <a href="{% url 'resultado' sistema.id %}" style="color: #667eea;">Ver</a> |
+            <a href="{% url 'eliminar_sistema' sistema.id %}" 
+               onclick="return confirm('¿Eliminar?')"
+               style="color: #dc3545;">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay sistemas guardados.</p>
+{% endif %}
+{% endblock %}

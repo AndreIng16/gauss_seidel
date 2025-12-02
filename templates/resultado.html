@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ sistema.nombre }}</h2>
+
+<hr>
+
+<h3>📊 Solución Final</h3>
+
+<ul>
+    {% for var, val in pares %}
+        <li><strong>{{ var }}</strong> = {{ val|floatformat:6 }}</li>
+    {% endfor %}
+</ul>
+
+
+<p><strong>Iteraciones:</strong> {{ solucion.iteraciones_usadas }}</p>
+
+<hr>
+
+<h3>📈 Tabla de Iteraciones</h3>
+
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>Iter</th>
+            {% for var in variables %}
+                <th>{{ var }}</th>
+                <th>Error {{ var }}%</th>
+            {% endfor %}
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for iter in tabla_datos %}
+            <tr>
+                <td>{{ iter.numero }}</td>
+
+                {% for val in iter.valores %}
+                    <td>{{ val|floatformat:6 }}</td>
+                {% endfor %}
+
+                {% for err in iter.errores %}
+                    <td>{{ err|floatformat:4 }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<hr>
+
+<h3>📉 Gráfica de Convergencia</h3>
+
+<div>
+    <!-- Aquí puedes insertar una imagen o canvas -->
+</div>
+
+{% endblock %}
