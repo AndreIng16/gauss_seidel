@@ -14,7 +14,6 @@
     {% endfor %}
 </ul>
 
-
 <p><strong>Iteraciones:</strong> {{ solucion.iteraciones_usadas }}</p>
 
 <hr>
@@ -53,8 +52,40 @@
 
 <h3>📉 Gráfica de Convergencia</h3>
 
-<div>
-    <!-- Aquí puedes insertar una imagen o canvas -->
-</div>
+<canvas id="graficaErrores" width="400" height="180"></canvas>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Convertir datos del backend sin generar errores de sintaxis
+    const iteraciones = JSON.parse('{{ iteraciones_nums|escapejs }}');
+    const errores = JSON.parse('{{ errores_promedio|escapejs }}');
+
+    const ctx = document.getElementById('graficaErrores').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: iteraciones,
+            datasets: [{
+                label: 'Error promedio por iteración',
+                data: errores,
+                borderWidth: 2,
+                tension: 0.2,
+                pointRadius: 4,
+                borderColor: 'red',
+                backgroundColor: 'rgba(255,0,0,0.2)',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: false }
+            }
+        }
+    });
+</script>
 
 {% endblock %}

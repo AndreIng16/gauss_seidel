@@ -95,8 +95,8 @@ def resultado(request, sistema_id):
         'pares': pares,              # ← SE ENVÍA AL TEMPLATE
         'variables': variables,
         'tabla_datos': tabla_datos,
-        'errores_promedio': json.dumps(errores_promedio),
-        'iteraciones_nums': json.dumps(list(range(1, len(iteraciones) + 1)))
+        'errores_promedio': errores_promedio,
+        'iteraciones_nums': list(range(1, len(iteraciones) + 1)),
     }
     
     return render(request, 'resultado.html', context)
